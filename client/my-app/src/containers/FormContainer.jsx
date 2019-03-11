@@ -6,7 +6,7 @@ import CheckBox from '../components/CheckBox';
 import Input from '../components/Input';  
 import TextArea from '../components/TextArea';  
 import Select from '../components/Select';
-import Button from '../components/Button'
+import Button from '../components/Button';
 
 class FormContainer extends Component {  
   constructor(props) {
@@ -18,12 +18,12 @@ class FormContainer extends Component {
         age: '',
         gender: '',
         status: [],
-        about: ''
-
+        about: '',
+        password:''
       },
 
       genderOptions: ['Male', 'Female', 'Others'],
-      skillOptions: ['Existing User', 'New User', 'Family', 'Enterprise']
+      skillOptions: ['Savings', 'Credit', 'Debit', 'Current']
 
     }
     this.handleTextArea = this.handleTextArea.bind(this);
@@ -33,6 +33,8 @@ class FormContainer extends Component {
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleCheckBox = this.handleCheckBox.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
+
   }
 
   /* This lifecycle hook gets executed when the component mounts */
@@ -44,6 +46,14 @@ class FormContainer extends Component {
         }
       }), () => console.log(this.state.newUser))
   }
+
+  handlePassword(e) {
+    let value = e.target.value;
+    this.setState( prevState => ({ newUser : 
+         {...prevState.newUser, password: value
+         }
+       }), () => console.log(this.state.newUser))
+   }
 
   handleAge(e) {
        let value = e.target.value;
@@ -117,7 +127,8 @@ class FormContainer extends Component {
           age: '',
           gender: '',
           status: [],
-          about: ''
+          about: '',
+          password: ''
         },
       })
   }
@@ -143,6 +154,15 @@ class FormContainer extends Component {
                 placeholder = {'Enter your age'}
                  handleChange={this.handleAge} /> {/* Age */} 
 
+<Input inputType={'password'}
+                   title= {'Password'} 
+                   name= {'Password'}
+                   value={this.state.newUser.password} 
+                   placeholder = {'Enter password'}
+                   handleChange = {this.handlePassword}
+                   
+                   /> {/* Name of the user */}
+        
 
           <Select title={'Gender'}
                   name={'gender'}
@@ -151,19 +171,19 @@ class FormContainer extends Component {
                   placeholder = {'Select Gender'}
                   handleChange = {this.handleInput}
                   /> {/* Age Selection */}
-          <CheckBox  title={'Status'}
+          <CheckBox  title={'Account Type'}
                   name={'status'}
                   options={this.state.skillOptions}
                   selectedOptions = { this.state.newUser.status}
                   handleChange={this.handleCheckBox}
                    /> {/* Skill */}
           <TextArea
-            title={'About you.'}
+            title={'Other Bank Details'}
             rows={10}
             value={this.state.newUser.about}
             name={'currentPetInfo'}
             handleChange={this.handleTextArea}
-            placeholder={'Describe your past experience and skills'} />{/* About you */}
+            placeholder={'Address proof, etc'} />{/* About you */}
 
           <Button 
               action = {this.handleFormSubmit}
