@@ -6,3 +6,4 @@ I followed [this](https://www.codementor.io/blizzerand/building-forms-using-reac
 1. What are the best react.js coding practices? The code [and the snippets I have copied from SO] *feel* very clumsy to me.
 2. What are the best express.js coding practices? How should I organize my code?
 3. The  react-app and the express app are literally **not connected** with each other. Of course react-app hits the endpoints in express server, but that's the extent of it. They are independant of each other. Is this how it is supposed to be? I have to literally run them separately, can I write a script to make them run 'together'? Someone help me!
+4. State Management -- redux
