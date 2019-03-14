@@ -8,7 +8,10 @@
     "react-component-password": "^0.3.0",
     "react-dom": "^16.8.4",
     "react-nice-input-password": "^2.1.5",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
+    "webpack": "^4.28.3",
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
